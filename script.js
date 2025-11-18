@@ -1,4 +1,7 @@
-// Menu mobile simples
+/* =========================================
+   MENU MOBILE
+========================================= */
+
 const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
 
@@ -7,56 +10,82 @@ if (navToggle && navMenu) {
     navMenu.classList.toggle("open");
   });
 
-  // Fecha o menu ao clicar em um link
-  navMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("open");
-    });
+  // Fecha o menu ao clicar em qualquer link
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => navMenu.classList.remove("open"));
   });
 }
-// =========================
-// CARREGAR CATEGORIAS
-// =========================
 
-fetch("products.json")
-  .then(res => res.json())
-  .then(data => {
-    renderCategories(data);
 
-    document.getElementById("categorySelect")
-      .addEventListener("change", () => renderCategories(data));
+/* =========================================
+   FILTROS DE PRODUTOS
+========================================= */
 
-    document.getElementById("materialSelect")
-      .addEventListener("change", () => renderCategories(data));
+const filterType = document.getElementById("filterType");
+const filterMaterial = document.getElementById("filterMaterial");
+const productsGrid = document.getElementById("productsGrid");
+
+// Função principal de filtragem
+function filterProducts() {
+  const typeValue = filterType.value;
+  const materialValue = filterMaterial.value;
+
+  const products = document.querySelectorAll(".product-card");
+
+  products.forEach(product => {
+    const type = product.getAttribute("data-type");
+    const material = product.getAttribute("data-material");
+
+    const matchesType = (typeValue === "all" || typeValue === type);
+    const matchesMaterial = (materialValue === "all" || materialValue === material);
+
+    product.style.display = (matchesType && matchesMaterial) ? "block" : "none";
   });
+}
 
-function renderCategories(data) {
-  const categoryGrid = document.getElementById("categoryGrid");
-  const categoryFilter = document.getElementById("categorySelect").value;
-  const materialFilter = document.getElementById("materialSelect").value;
+// Eventos de filtro
+filterType.addEventListener("change", filterProducts);
+filterMaterial.addEventListener("change", filterProducts);
 
-  categoryGrid.innerHTML = "";
 
-  Object.keys(data).forEach(id => {
-    const p = data[id];
+/* =========================================
+   BACKEND FUTURO (JSON)
+   Preparado p/ substituir o conteúdo estático
+========================================= */
 
-    if ((categoryFilter === "all" || p.type === categoryFilter) &&
-        (materialFilter === "all" || p.material === materialFilter)) {
+// DESATIVEI o fetch para evitar erro enquanto o backend não está pronto
+// Quando você tiver products.json, basta DESCOMENTAR ↓↓↓
 
-      const card = document.createElement("div");
-      card.classList.add("category-card");
+/*
+fetch("products.json")
+  .then(response => response.json())
+  .then(data => {
+    renderDynamicProducts(data);
+    filterProducts(); 
+  })
+  .catch(err => console.error("Erro ao carregar produtos:", err));
+*/
 
-      card.innerHTML = `
-        <img src="${p.images[0] || 'img/default.jpg'}">
-        <h3>${p.name}</h3>
-        <span>${p.material}</span>
-      `;
 
-      card.addEventListener("click", () => {
-        window.location.href = `product.html?id=${id}`;
-      });
+// RENDERIZAÇÃO DINÂMICA (API/JSON futuro)
+function renderDynamicProducts(productsData) {
+  productsGrid.innerHTML = ""; // limpa antes de preencher
 
-      categoryGrid.appendChild(card);
-    }
+  productsData.forEach(item => {
+    const card = `
+      <div class="product-card" 
+           data-type="${item.tipo}" 
+           data-material="${item.material}">
+        
+        <div class="product-img-placeholder">
+          <span>Imagem</span>
+        </div>
+
+        <h3 class="product-name">${item.nome}</h3>
+        <p class="product-material">${item.material}</p>
+      </div>
+    `;
+
+    productsGrid.insertAdjacentHTML("beforeend", card);
   });
 }
