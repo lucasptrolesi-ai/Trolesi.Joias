@@ -21,13 +21,11 @@
         <img src="img/logo-trolesi.png" alt="Trolesi Joias" class="logo-img" />
       </div>
 
-      <!-- MENU -->
+      <!-- MENU (ATUALIZADO) -->
       <nav class="nav">
         <a href="#inicio">Início</a>
         <a href="#colecoes">Coleções</a>
-        <a href="#vitrine">Vitrine</a>
         <a href="#presentes">Presentes</a>
-        <a href="#materiais">Materiais de Marca</a>
         <a href="#contato" class="nav-cta">Contato</a>
       </nav>
 
@@ -52,8 +50,8 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#vitrine" class="btn btn-primary">Ver vitrine</a>
-            <a href="#colecoes" class="btn btn-outline">Conhecer coleções</a>
+            <a href="#colecoes" class="btn btn-primary">Ver materiais</a>
+            <a href="#presentes" class="btn btn-outline">Ver sugestões de presentes</a>
           </div>
 
           <div class="hero-badges">
@@ -88,102 +86,46 @@
       </div>
     </section>
 
-    <!-- ================= COLEÇÕES ================= -->
+    <!-- ================= COLEÇÕES (MATERIAIS) ================= -->
     <section class="section" id="colecoes">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Coleções Trolesi</h2>
+          <h2 class="section-title">Materiais com que trabalhamos</h2>
           <p class="section-subtitle">
-            Cada coleção foi pensada para um estilo, um momento e uma história diferente.
+            Cada material é escolhido para oferecer brilho, durabilidade e conforto no dia a dia.
           </p>
         </div>
 
-        <!-- PREPARADO PARA BACKEND -->
         <div class="collections-grid" id="collections-area" data-bind="collections">
 
-          <article class="collection-card" data-id="COL_STATIC_01">
-            <p class="collection-tag">Clássicos</p>
-            <h3>Ouro 18k Essencial</h3>
-            <p>Alianças, solitários e anéis clássicos que atravessam gerações com elegância.</p>
-            <ul>
-              <li>Design atemporal</li>
-              <li>Brilho intenso</li>
-              <li>Perfeito para momentos únicos</li>
-            </ul>
+          <!-- BANHADO A OURO -->
+          <article class="collection-card" data-id="MAT_OURO">
+            <div class="collection-image-wrapper">
+              <img src="img/material-ouro.jpg" alt="Joias banhadas a ouro Trolesi Joias" class="collection-image" />
+            </div>
+            <p class="collection-tag">Banhado a ouro</p>
+            <h3>Banhado a ouro</h3>
+            <p>O brilho dourado que transforma qualquer look com elegância.</p>
           </article>
 
-          <article class="collection-card" data-id="COL_STATIC_02">
-            <p class="collection-tag">Versátil</p>
-            <h3>Prata 925 & Dia a Dia</h3>
-            <p>Peças que acompanham a rotina com leveza e sofisticação.</p>
-            <ul>
-              <li>Fácil de combinar</li>
-              <li>Conforto e delicadeza</li>
-              <li>Para todos os estilos</li>
-            </ul>
+          <!-- PRATA 925 -->
+          <article class="collection-card" data-id="MAT_PRATA">
+            <div class="collection-image-wrapper">
+              <img src="img/material-prata.jpg" alt="Joias em prata 925 Trolesi Joias" class="collection-image" />
+            </div>
+            <p class="collection-tag">Prata 925</p>
+            <h3>Prata 925</h3>
+            <p>Prata pura de alta qualidade, brilho intenso e durabilidade.</p>
           </article>
 
-          <article class="collection-card" data-id="COL_STATIC_03">
-            <p class="collection-tag">Tendência</p>
-            <h3>Lançamentos Exclusivos</h3>
-            <p>Peças em edições especiais pensadas para quem gosta de estar sempre um passo à frente.</p>
-            <ul>
-              <li>Edição limitada</li>
-              <li>Detalhes diferenciados</li>
-              <li>Perfeito para presentear</li>
-            </ul>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= VITRINE ================= -->
-    <section class="section soft-bg" id="vitrine">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Vitrine Trolesi</h2>
-          <p class="section-subtitle">
-            Uma prévia de como podemos te ajudar a brilhar todos os dias.
-          </p>
-        </div>
-
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="ouro">Ouro 18k</button>
-          <button class="filter-btn" data-filter="prata">Prata 925</button>
-          <button class="filter-btn" data-filter="semijoia">Semijoias</button>
-        </div>
-
-        <!-- PREPARADO PARA BACKEND -->
-        <div class="products-grid" id="products-area" data-bind="products">
-
-          <article class="product-card" data-id="PROD_STATIC_01" data-category="ouro">
-            <div class="product-badge">Ouro 18k</div>
-            <h3>Par de alianças clássicas</h3>
-            <p>Acabamento polido, perfeito para selar histórias.</p>
-            <span class="product-action">Consultar valores</span>
-          </article>
-
-          <article class="product-card" data-id="PROD_STATIC_02" data-category="semijoia">
-            <div class="product-badge">Semijoia</div>
-            <h3>Conjunto colar + brinco</h3>
-            <p>Banho dourado e pontos de luz para o dia e noite.</p>
-            <span class="product-action">Ver detalhes</span>
-          </article>
-
-          <article class="product-card" data-id="PROD_STATIC_03" data-category="prata">
-            <div class="product-badge">Prata 925</div>
-            <h3>Argolas essenciais</h3>
-            <p>Leves, versáteis e presentes em qualquer porta-joias.</p>
-            <span class="product-action">Combinar look</span>
-          </article>
-
-          <article class="product-card" data-id="PROD_STATIC_04" data-category="semijoia">
-            <div class="product-badge">Semijoia</div>
-            <h3>Piercing fake delicado</h3>
-            <p>Detalhe moderno, sem perder a elegância Trolesi.</p>
-            <span class="product-action">Adicionar ao estilo</span>
+          <!-- AÇO CIRÚRGICO -->
+          <article class="collection-card" data-id="MAT_ACO">
+            <div class="collection-image-wrapper">
+              <img src="img/material-aco.jpg" alt="Joias em aço cirúrgico Trolesi Joias" class="collection-image" />
+            </div>
+            <p class="collection-tag">Aço cirúrgico</p>
+            <h3>Aço cirúrgico</h3>
+            <p>Peças modernas, resistentes e perfeitas para o dia a dia.</p>
           </article>
 
         </div>
@@ -200,7 +142,6 @@
           </p>
         </div>
 
-        <!-- PREPARADO PARA BACKEND -->
         <div class="gifts-grid" id="gifts-area" data-bind="gifts">
 
           <article class="gift-card" data-id="GIFT_STATIC_01">
@@ -220,75 +161,6 @@
             <h3>Pulseiras empilháveis</h3>
             <p>Combine várias peças delicadas para um look único.</p>
           </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= MATERIAIS DE MARCA ================= -->
-    <section class="section soft-bg" id="materiais">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Materiais de Marca Trolesi</h2>
-          <p class="section-subtitle">
-            Aqui você tem uma prévia de como ficam o <strong>cartão de visita</strong>, 
-            <strong>banners</strong> e <strong>mockups</strong> usando a identidade Trolesi.
-          </p>
-        </div>
-
-        <!-- PREPARADO PARA BACKEND -->
-        <div class="brand-materials-grid" id="brand-area" data-bind="brand">
-
-          <!-- Cartão de Visita -->
-          <div class="brand-block" data-id="BRAND_VISIT_CARD">
-            <h3>Cartão de visita</h3>
-            <div class="card-layout business-card">
-              <div class="bc-front">
-                <div class="bc-logo">
-                  <span class="bc-logo-text">Trolesi joias</span>
-                </div>
-                <p class="bc-tagline">Joias que elevam sua essência.</p>
-              </div>
-              <div class="bc-back">
-                <p class="bc-name">Nome da Consultora</p>
-                <p class="bc-info">@trolesijoias</p>
-                <p class="bc-info">WhatsApp: (00) 00000-0000</p>
-                <p class="bc-info">Cidade / UF</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Banner Instagram -->
-          <div class="brand-block" data-id="BRAND_INSTAGRAM_BANNER">
-            <h3>Banner Instagram (1080x1080)</h3>
-            <div class="card-layout insta-banner">
-              <div class="ib-top">
-                <p class="ib-label">Lançamento</p>
-                <h4 class="ib-title">Coleção Rosa Essencial</h4>
-              </div>
-              <div class="ib-bottom">
-                <p class="ib-text">Detalhes delicados, banho dourado e o tom de rosa Trolesi.</p>
-                <span class="ib-cta">@trolesijoias</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mockup Caixa / Sacola -->
-          <div class="brand-block" data-id="BRAND_MOCKUP">
-            <h3>Mockup caixa & sacola</h3>
-            <div class="card-layout mockup-box">
-              <div class="box-shape">
-                <span class="box-logo">Trolesi</span>
-              </div>
-              <div class="bag-shape">
-                <span class="bag-logo">joias</span>
-              </div>
-              <p class="mockup-note">
-                Visual de referência para caixa e sacola.
-                Use como base para designer ou Canva.
-              </p>
-            </div>
-          </div>
 
         </div>
       </div>

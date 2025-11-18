@@ -84,7 +84,6 @@ body {
   object-fit: contain;
 }
 
-
 .nav {
   display: flex;
   align-items: center;
@@ -212,11 +211,6 @@ body {
   background: rgba(212, 109, 130, 0.06);
 }
 
-.btn-small {
-  padding: 8px 16px;
-  font-size: 0.8rem;
-}
-
 .btn-full {
   width: 100%;
 }
@@ -226,7 +220,6 @@ body {
   flex-wrap: wrap;
   gap: 8px;
   font-size: 0.8rem;
-  color: var(--cinza-texto);
 }
 
 .hero-badges span {
@@ -236,65 +229,7 @@ body {
   border: 1px solid rgba(212, 109, 130, 0.15);
 }
 
-/* Right side hero */
-
-.hero-showcase {
-  display: grid;
-  gap: 16px;
-}
-
-.hero-card {
-  background: #fff;
-  border-radius: var(--radius-soft);
-  padding: 18px 20px;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(212, 109, 130, 0.16);
-}
-
-.hero-card-label {
-  font-size: 0.8rem;
-  color: var(--cinza-suave);
-  margin-bottom: 6px;
-}
-
-.hero-card-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  color: var(--rosa-trolesi);
-  margin-bottom: 8px;
-}
-
-.hero-card-text {
-  font-size: 0.9rem;
-  margin-bottom: 12px;
-}
-
-.hero-mini-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.mini-card {
-  border-radius: 16px;
-  padding: 14px 16px;
-  background: linear-gradient(135deg, #ffe2ef, #fff);
-  border: 1px solid rgba(212, 109, 130, 0.24);
-}
-
-.mini-label {
-  font-size: 0.75rem;
-  color: var(--cinza-suave);
-  margin-bottom: 4px;
-}
-
-.mini-title {
-  font-size: 0.95rem;
-  color: #3b2329;
-  font-weight: 500;
-}
-
-/* ================= COLEÇÕES ================= */
+/* ================= COLEÇÕES (MATERIAIS) ================= */
 
 .collections-grid {
   display: grid;
@@ -310,6 +245,20 @@ body {
   border: 1px solid rgba(212, 109, 130, 0.12);
 }
 
+.collection-image-wrapper {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+}
+
+.collection-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
 .collection-tag {
   font-size: 0.8rem;
   color: var(--cinza-suave);
@@ -322,89 +271,11 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.4rem;
   color: var(--rosa-trolesi);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .collection-card p {
   font-size: 0.92rem;
-  margin-bottom: 10px;
-}
-
-.collection-card ul {
-  list-style: none;
-  font-size: 0.86rem;
-  color: var(--cinza-texto);
-}
-
-.collection-card li::before {
-  content: "• ";
-  color: var(--rosa-trolesi);
-}
-
-/* ================= VITRINE ================= */
-
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-  justify-content: center;
-}
-
-.filter-btn {
-  border-radius: 999px;
-  padding: 8px 16px;
-  border: 1px solid rgba(212, 109, 130, 0.35);
-  background: #fff;
-  font-size: 0.86rem;
-  cursor: pointer;
-  color: var(--cinza-texto);
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-  background: var(--rosa-trolesi);
-  color: #fff;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.product-card {
-  border-radius: var(--radius-soft);
-  padding: 16px 16px 18px;
-  background: #fff;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(212, 109, 130, 0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.product-badge {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--cinza-suave);
-}
-
-.product-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  color: #3b2329;
-}
-
-.product-card p {
-  font-size: 0.9rem;
-  flex: 1;
-}
-
-.product-action {
-  font-size: 0.82rem;
-  color: var(--rosa-trolesi);
 }
 
 /* ================= PRESENTES ================= */
@@ -439,155 +310,6 @@ body {
 
 .gift-card p {
   font-size: 0.92rem;
-}
-
-/* ================= MATERIAIS DE MARCA ================= */
-
-.brand-materials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.brand-block h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  color: #3b2329;
-  margin-bottom: 10px;
-}
-
-.card-layout {
-  background: #fff;
-  border-radius: var(--radius-soft);
-  padding: 12px;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(212, 109, 130, 0.16);
-}
-
-/* Cartão de visita */
-
-.business-card {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 10px;
-  font-size: 0.8rem;
-}
-
-.bc-front,
-.bc-back {
-  border-radius: 14px;
-  padding: 12px 14px;
-}
-
-.bc-front {
-  background: linear-gradient(135deg, var(--rosa-trolesi), #f08ba6);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-}
-
-.bc-logo-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-}
-
-.bc-tagline {
-  font-size: 0.8rem;
-}
-
-.bc-back {
-  border: 1px solid rgba(212, 109, 130, 0.35);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  color: var(--cinza-texto);
-}
-
-.bc-name {
-  font-weight: 600;
-  color: #3b2329;
-}
-
-.bc-info {
-  font-size: 0.78rem;
-}
-
-/* Banner Instagram */
-
-.insta-banner {
-  aspect-ratio: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 16px 16px 14px;
-  background: linear-gradient(135deg, #ffe3ef, #fff);
-}
-
-.ib-top {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.ib-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  color: #3b2329;
-}
-
-.ib-text {
-  font-size: 0.86rem;
-  color: var(--cinza-texto);
-}
-
-.ib-cta {
-  align-self: flex-end;
-  font-size: 0.8rem;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid rgba(212, 109, 130, 0.4);
-}
-
-/* Mockup */
-
-.mockup-box {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  text-align: center;
-  font-size: 0.84rem;
-}
-
-.box-shape,
-.bag-shape {
-  border-radius: 18px;
-  border: 1px solid rgba(212, 109, 130, 0.35);
-  padding: 18px 26px;
-  background: linear-gradient(135deg, #fff, #ffe9f3);
-}
-
-.box-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  background: linear-gradient(90deg, var(--dourado-inicio), var(--dourado-fim));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.bag-logo {
-  font-size: 0.9rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--cinza-texto);
-}
-
-.mockup-note {
-  font-size: 0.78rem;
-  color: var(--cinza-texto);
 }
 
 /* ================= CONTATO ================= */
@@ -639,14 +361,13 @@ body {
 /* ================= RESPONSIVO ================= */
 
 @media (max-width: 900px) {
+
   .hero-grid {
     grid-template-columns: 1fr;
   }
 
   .collections-grid,
-  .products-grid,
   .gifts-grid,
-  .brand-materials-grid,
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -670,31 +391,21 @@ body {
   .nav-toggle {
     display: block;
   }
-
-  .nav-cta {
-    width: 100%;
-    text-align: center;
-  }
 }
 
 @media (max-width: 640px) {
+
   .section {
     padding: 60px 0;
   }
 
   .collections-grid,
-  .products-grid,
   .gifts-grid,
-  .brand-materials-grid,
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
   .hero {
     padding-top: 70px;
-  }
-
-  .business-card {
-    grid-template-columns: 1fr;
   }
 }
