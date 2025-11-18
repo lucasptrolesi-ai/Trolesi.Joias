@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trolesi Joias — Produto</title>
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS PRINCIPAL -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ===== Layout Geral ===== */
+    .product-page {
+      width: min(1100px, 100% - 40px);
+      margin: 80px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* ===== Galeria ===== */
+    .product-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .product-main-img {
+      width: 100%;
+      height: 420px;
+      background: #f7f7f7;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      color: #b5b5b5;
+      border: 1px dashed #d9d9d9;
+    }
+
+    .product-thumbs {
+      display: flex;
+      gap: 12px;
+    }
+
+    .product-thumb {
+      width: 90px;
+      height: 90px;
+      background: #f1f1f1;
+      border-radius: 12px;
+      border: 1px dashed #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      color: #aaa;
+      cursor: default;
+    }
+
+    /* ==== Infos Produto ==== */
+    .product-info h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      color: #3b2329;
+    }
+
+    .product-category {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .9rem;
+      color: #b6a7a5;
+      margin-bottom: 20px;
+    }
+
+    .product-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--rosa-trolesi);
+      margin: 18px 0;
+    }
+
+    .product-description {
+      margin: 20px 0;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .btn-buy {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 14px 32px;
+      background: var(--rosa-trolesi);
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 10px 25px rgba(212,109,130,0.3);
+      transition: .25s;
+    }
+
+    .btn-buy:hover {
+      filter: brightness(1.05);
+    }
+
+    /* ===== Specs ===== */
+    .product-specs {
+      margin-top: 40px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid rgba(212,109,130,0.15);
+    }
+
+    .product-specs h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .product-specs ul {
+      list-style: none;
+      padding: 0;
+      line-height: 1.8;
+      font-size: .95rem;
+    }
+
+    /* ===== Sugestões ===== */
+    .suggestions {
+      margin-top: 100px;
+      text-align: center;
+    }
+
+    .suggestions h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .suggestions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .suggestion-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: .25s;
+    }
+
+    .suggestion-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .suggestion-placeholder {
+      width: 100%;
+      height: 180px;
+      background: #f4f4f4;
+      border: 1px dashed #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: .9rem;
+    }
+
+    .suggestion-card h3 {
+      padding: 14px;
+      color: var(--rosa-trolesi);
+      font-size: 1.1rem;
+    }
+
+    /* ===== Responsivo ===== */
+    @media (max-width: 900px) {
+      .product-page {
+        grid-template-columns: 1fr;
+      }
+
+      .suggestions-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .suggestions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Header igual ao site principal -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo-area">
+        <img src="img/logo-trolesi.png" class="logo-img">
+        <span class="brand-name">Trolesi Joias</span>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html#inicio">Início</a>
+        <a href="index.html#colecoes">Coleções</a>
+        <a href="index.html#presentes">Presentes</a>
+        <a href="index.html#contato" class="nav-cta">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= PRODUTO ================= -->
+  <section class="product-page">
+
+    <!-- GALERIA SEM IMAGENS -->
+    <div class="product-gallery">
+      <div class="product-main-img">Imagem principal</div>
+
+      <div class="product-thumbs">
+        <div class="product-thumb">Foto 1</div>
+        <div class="product-thumb">Foto 2</div>
+        <div class="product-thumb">Foto 3</div>
+      </div>
+    </div>
+
+    <!-- INFORMAÇÕES -->
+    <div class="product-info">
+      <div class="product-category">Categoria do Produto</div>
+
+      <h1>Nome do Produto</h1>
+
+      <div class="product-price">R$ 0,00</div>
+
+      <p class="product-description">
+        Descrição do produto definida pelo painel administrativo.
+      </p>
+
+      <a href="#" class="btn-buy">Comprar no WhatsApp</a>
+
+      <div class="product-specs">
+        <h3>Detalhes</h3>
+
+        <ul>
+          <li>• Material: —</li>
+          <li>• Banho: —</li>
+          <li>• Tamanho: —</li>
+          <li>• Observações: —</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SUGESTÕES ================= -->
+  <section class="suggestions container">
+    <h2>Você também pode gostar</h2>
+
+    <div class="suggestions-grid">
+      <div class="suggestion-card">
+        <div class="suggestion-placeholder">Sugestão 1</div>
+        <h3>Nome do Produto</h3>
+      </div>
+
+      <div class="suggestion-card">
+        <div class="suggestion-placeholder">Sugestão 2</div>
+        <h3>Nome do Produto</h3>
+      </div>
+
+      <div class="suggestion-card">
+        <div class="suggestion-placeholder">Sugestão 3</div>
+        <h3>Nome do Produto</h3>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="dev-credit">
+        <img src="img/lucas-logo.png" class="dev-logo">
+        <span>Desenvolvido por <strong>Lucas Peixoto</strong></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
