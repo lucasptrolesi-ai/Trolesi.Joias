@@ -493,3 +493,13 @@ body {
     font-size: 1.7rem;
   }
 }
+/* HERO LIMPO (sem imagem à direita) */
+.hero-clean {
+  grid-template-columns: 1fr !important;
+  text-align: left;
+  justify-items: start;
+}
+
+.hero-right {
+  display: none !important;
+}
