@@ -353,10 +353,27 @@ body {
   color: var(--cinza-texto);
 }
 
-.footer-note {
-  margin-top: 4px;
-  color: var(--cinza-suave);
+/* ===== Rodapé novo ===== */
+
+.dev-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0.9;
 }
+
+.dev-logo {
+  height: 28px;
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(0,255,0,0.35));
+}
+
+.dev-credit span {
+  font-size: 0.85rem;
+  color: var(--cinza-texto);
+}
+
 
 /* ================= RESPONSIVO ================= */
 
