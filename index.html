@@ -7,7 +7,6 @@
 
   <!-- Fontes elegantes -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -27,55 +26,51 @@
         <a href="#contato" class="nav-cta">Contato</a>
       </nav>
 
-      <button class="nav-toggle" id="navToggle">☰</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+        ☰
+      </button>
     </div>
   </header>
 
   <main>
-   <!-- ================= HERO ================= -->
-<<section class="hero pandora-hero">
-  <div class="hero-grid">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio">
+      <div class="hero-grid">
+        <!-- Texto -->
+        <div class="hero-left">
+          <span class="hero-small-title">Coleção Premium Trolesi</span>
 
-    <div class="hero-left">
-      <span class="hero-small-title">Coleção Premium Trolesi</span>
+          <h1 class="hero-main-title">
+            Beleza que ilumina<br> cada momento.
+          </h1>
 
-      <h1 class="hero-main-title">
-        Beleza que ilumina<br> cada momento.
-      </h1>
+          <p class="hero-description">
+            Joias delicadas com banho dourado e o elegante rosa Trolesi —
+            criadas para realçar sua essência com brilho suave e presença marcante.
+          </p>
 
-      <p class="hero-description">
-        Joias delicadas com banho dourado e o elegante rosa Trolesi —
-        criadas para realçar sua essência com brilho suave e presença marcante.
-      </p>
+          <div class="hero-buttons">
+            <a href="#colecoes" class="btn-pandora-primary">Ver coleção</a>
+            <a href="#presentes" class="btn-pandora-light">Presentes especiais</a>
+          </div>
 
-      <div class="hero-buttons">
-        <a href="#colecoes" class="btn-pandora-primary">Ver coleção</a>
-        <a href="#presentes" class="btn-pandora-light">Presentes especiais</a>
+          <div class="hero-badges">
+            <span>Envios para todo o Brasil</span>
+            <span>Curadoria própria</span>
+            <span>Atendimento humanizado</span>
+          </div>
+        </div>
+
+        <!-- Foto -->
+        <div class="hero-right">
+          <div class="pandora-photo-frame">
+            <img src="img/modelo-brinco.jpg" alt="Joias Trolesi em uso" />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="hero-right">
-      <div class="pandora-photo-frame">
-        <img src="img/modelo-brinco.jpg" alt="Joias Trolesi">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-    <!-- Lado direito (FOTO) -->
-    <div class="hero-right">
-      <div class="hero-photo-container">
-        <img src="img/modelo-brinco.jpg" alt="Modelo usando jóias Trolesi" class="hero-photo">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-    <!-- ================= MATERIAIS / COLEÇÕES ================= -->
+    <!-- ================= COLEÇÕES / MATERIAIS ================= -->
     <section class="section" id="colecoes">
       <div class="container">
         <div class="section-header">
@@ -89,28 +84,37 @@
           <!-- Ouro -->
           <article class="collection-card material-card">
             <div class="collection-image-wrapper">
-              <img src="img/material-ouro.jpg" alt="Banhado a Ouro" class="collection-image" />
+              <img src="img/material-ouro.jpg" alt="Semijoias banhadas a ouro" class="collection-image" loading="lazy" />
             </div>
             <h3>Banhado a Ouro</h3>
-            <p>Peças com banho dourado, brilho intenso e acabamento refinado, perfeitas para compor looks sofisticados.</p>
+            <p>
+              Peças com banho dourado, brilho intenso e acabamento refinado,
+              perfeitas para compor looks sofisticados.
+            </p>
           </article>
 
           <!-- Prata 925 -->
           <article class="collection-card material-card">
             <div class="collection-image-wrapper">
-              <img src="img/material-prata.jpg" alt="Prata 925" class="collection-image" />
+              <img src="img/material-prata.jpg" alt="Joias em Prata 925" class="collection-image" loading="lazy" />
             </div>
             <h3>Prata 925</h3>
-            <p>Elegância clássica, ideal para o dia a dia com alta durabilidade e conforto para a pele.</p>
+            <p>
+              Elegância clássica, ideal para o dia a dia com alta durabilidade
+              e conforto para a pele.
+            </p>
           </article>
 
           <!-- Aço cirúrgico -->
           <article class="collection-card material-card">
             <div class="collection-image-wrapper">
-              <img src="img/material-aco.jpg" alt="Aço Cirúrgico" class="collection-image" />
+              <img src="img/material-aco.jpg" alt="Joias em aço cirúrgico" class="collection-image" loading="lazy" />
             </div>
             <h3>Aço Cirúrgico</h3>
-            <p>Modernidade, resistência e versatilidade para quem busca joias para acompanhar a rotina.</p>
+            <p>
+              Modernidade, resistência e versatilidade para quem busca joias
+              que acompanham a rotina.
+            </p>
           </article>
         </div>
       </div>
@@ -122,7 +126,7 @@
         <div class="section-header">
           <h2 class="section-title">Presentes que marcam momentos</h2>
           <p class="section-subtitle">
-            Sugestões pensadas para surpreender com carinho e sofisticação.
+            Sugestões pensadas para surpreender com carinho, significado e sofisticação.
           </p>
         </div>
 
@@ -134,7 +138,7 @@
           </article>
 
           <article class="gift-card">
-            <p class="gift-tag">Presente rápido</p>
+            <p class="gift-tag">Presente prático</p>
             <h3>Vale-presente Trolesi</h3>
             <p>Você escolhe o valor, quem recebe escolhe a joia que mais combina.</p>
           </article>
@@ -154,17 +158,20 @@
         <div class="section-header">
           <h2 class="section-title">Atendimento Trolesi</h2>
           <p class="section-subtitle">
-            Fale com a gente para conhecer o catálogo completo, tirar dúvidas ou montar um presente especial.
+            Fale com a gente para conhecer o catálogo completo, tirar dúvidas
+            ou montar um presente especial.
           </p>
         </div>
 
         <div class="contact-grid">
           <article class="contact-card">
             <h3>WhatsApp</h3>
-            <p>Atendimento rápido, humanizado e direto.</p>
-            <a href="https://api.whatsapp.com/send/?phone=5535998603736&text&type=phone_number&app_absent=0&utm_source=ig"
-               target="_blank"
-               class="btn btn-primary btn-full">
+            <p>Atendimento rápido, próximo e humanizado.</p>
+            <a
+              href="https://api.whatsapp.com/send/?phone=5535998603736&text&type=phone_number&app_absent=0&utm_source=ig"
+              target="_blank"
+              class="btn btn-primary btn-full"
+            >
               Chamar no WhatsApp
             </a>
           </article>
@@ -172,9 +179,11 @@
           <article class="contact-card">
             <h3>Instagram</h3>
             <p>Acompanhe lançamentos, bastidores e inspirações de joias.</p>
-            <a href="https://www.instagram.com/trolesijoias/"
-               target="_blank"
-               class="btn btn-outline btn-full">
+            <a
+              href="https://www.instagram.com/trolesijoias/"
+              target="_blank"
+              class="btn btn-outline btn-full"
+            >
               @trolesijoias
             </a>
           </article>
@@ -187,7 +196,7 @@
   <footer class="footer">
     <div class="container footer-content">
       <div class="dev-credit">
-        <img src="img/lucas-logo.png" alt="Lucas Peixoto" class="dev-logo">
+        <img src="img/lucas-logo.png" alt="Lucas Peixoto Logo" class="dev-logo" />
         <span>Desenvolvido por <strong>Lucas Peixoto</strong></span>
       </div>
     </div>
