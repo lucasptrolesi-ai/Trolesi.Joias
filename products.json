@@ -1,0 +1,25 @@
+{
+  "pulseira_ouro_01": {
+    "name": "Pulseira Dourada Classic",
+    "type": "pulseira",
+    "material": "ouro",
+    "images": [],
+    "price": 149.90
+  },
+
+  "anel_prata_01": {
+    "name": "Anel Prata Elegance",
+    "type": "anel",
+    "material": "prata",
+    "images": [],
+    "price": 129.90
+  },
+
+  "correntaria_aco_01": {
+    "name": "Corrente Masculina Aço",
+    "type": "correntaria",
+    "material": "aco",
+    "images": [],
+    "price": 89.90
+  }
+}
