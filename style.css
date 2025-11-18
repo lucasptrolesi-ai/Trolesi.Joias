@@ -66,8 +66,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(212, 109, 130, 0.12);
 }
 
@@ -75,11 +75,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 12px 0;
   gap: 20px;
 }
 
-/* Logo + Nome */
 .logo-area {
   display: flex;
   align-items: center;
@@ -89,11 +88,12 @@ body {
 .logo-img {
   height: 110px;
   width: auto;
+  object-fit: contain;
 }
 
 .brand-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
+  font-size: 2.3rem;
   color: var(--rosa-trolesi);
   font-weight: 600;
   letter-spacing: 1px;
@@ -139,26 +139,26 @@ body {
   display: none;
   border: none;
   background: transparent;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 /* ================= HERO ================= */
 
 .hero {
-  padding: 80px 0 60px;
+  padding: 90px 0 70px;
   background: radial-gradient(circle at top left, #ffdbe9 0, #fff 45%, #fff 100%);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: 40px;
   align-items: center;
 }
 
 .hero-label {
   font-size: 0.9rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--cinza-suave);
   margin-bottom: 10px;
@@ -166,9 +166,9 @@ body {
 
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.4rem, 4vw, 3.1rem);
-  line-height: 1.1;
-  margin-bottom: 14px;
+  font-size: clamp(2.6rem, 4vw, 3.3rem);
+  line-height: 1.08;
+  margin-bottom: 16px;
   color: #3b2329;
 }
 
@@ -179,10 +179,108 @@ body {
 }
 
 .hero-subtitle {
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: var(--cinza-texto);
-  max-width: 440px;
-  margin-bottom: 24px;
+  max-width: 480px;
+  margin-bottom: 26px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 0.92rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--rosa-trolesi), #f08ba6);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(212, 109, 130, 0.4);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.04);
+}
+
+.btn-outline {
+  border: 1px solid var(--rosa-trolesi);
+  color: var(--rosa-trolesi);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: rgba(212, 109, 130, 0.06);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--cinza-texto);
+}
+
+.hero-badges span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(212, 109, 130, 0.06);
+  border: 1px solid rgba(212, 109, 130, 0.15);
+}
+
+/* HERO RIGHT */
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-media {
+  position: relative;
+  background: #fff;
+  border-radius: 26px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(212, 109, 130, 0.16);
+  max-width: 360px;
+}
+
+.hero-badge-top {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--cinza-suave);
+  margin-bottom: 10px;
+}
+
+.hero-main-image {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.hero-media-note {
+  font-size: 0.78rem;
+  color: var(--cinza-texto);
 }
 
 /* ================= COLEÇÕES (MATERIAIS) ================= */
@@ -194,7 +292,7 @@ body {
 }
 
 .collection-card {
-  padding: 20px 18px;
+  padding: 18px 18px 20px;
   border-radius: var(--radius-soft);
   background: #fff;
   box-shadow: var(--shadow-soft);
@@ -206,18 +304,22 @@ body {
   border-radius: 18px;
   overflow: hidden;
   margin-bottom: 1rem;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
 }
 
 .collection-image {
   width: 100%;
   height: 260px;
   object-fit: cover;
-  transition: transform 0.35s ease;
+  transition: transform 0.4s ease;
 }
 
-.collection-image:hover {
+/* ZOOM AO PASSAR O MOUSE */
+.material-card:hover .collection-image {
   transform: scale(1.06);
+}
+
+.material-card:hover {
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.09);
 }
 
 .collection-card h3 {
@@ -302,11 +404,7 @@ body {
 
 .footer-content {
   text-align: center;
-  font-size: 0.8rem;
-  color: var(--cinza-texto);
 }
-
-/* ===== Rodapé novo ===== */
 
 .dev-credit {
   display: flex;
@@ -331,8 +429,17 @@ body {
 
 @media (max-width: 900px) {
 
+  .hero {
+    padding-top: 80px;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-right {
+    order: -1;
+    margin-bottom: 24px;
   }
 
   .collections-grid,
@@ -343,7 +450,7 @@ body {
 
   .nav {
     position: absolute;
-    top: 64px;
+    top: 70px;
     right: 20px;
     background: #fff;
     flex-direction: column;
@@ -383,6 +490,6 @@ body {
   }
 
   .brand-name {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 }
