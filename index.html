@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trolesi Joias | Joias que elevam sua essência</title>
+
+  <!-- Fonte elegante -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo-area">
+        <img src="img/logo-trolesi.png" alt="Trolesi Joias" class="logo-img" />
+      </div>
+
+      <nav class="nav">
+        <a href="#inicio">Início</a>
+        <a href="#colecoes">Coleções</a>
+        <a href="#vitrine">Vitrine</a>
+        <a href="#presentes">Presentes</a>
+        <a href="#materiais">Materiais de Marca</a>
+        <a href="#contato" class="nav-cta">Contato</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-label">Coleções Exclusivas</p>
+          <h1 class="hero-title">
+            Joias que
+            <span class="logo-gradient">elevam sua essência.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Peças selecionadas para acompanhar cada momento da sua vida
+            com brilho, leveza e sofisticação.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#vitrine" class="btn btn-primary">Ver vitrine</a>
+            <a href="#colecoes" class="btn btn-outline">Conhecer coleções</a>
+          </div>
+
+          <div class="hero-badges">
+            <span>Envios para todo o Brasil</span>
+            <span>Peças selecionadas à mão</span>
+            <span>Atendimento humanizado</span>
+          </div>
+        </div>
+
+        <div class="hero-showcase">
+          <div class="hero-card highlight">
+            <p class="hero-card-label">Destaque do dia</p>
+            <h3 class="hero-card-title">Coleção Rosa Essencial</h3>
+            <p class="hero-card-text">
+              Semijoias com banho dourado e detalhes que combinam com o tom
+              rosa Trolesi — perfeitas para o dia a dia.
+            </p>
+            <button class="btn btn-small">Ver coleção</button>
+          </div>
+
+          <div class="hero-mini-grid">
+            <div class="mini-card">
+              <p class="mini-label">Lançamentos</p>
+              <p class="mini-title">Novas alianças</p>
+            </div>
+            <div class="mini-card">
+              <p class="mini-label">Favoritos</p>
+              <p class="mini-title">Brincos de pérola</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COLEÇÕES ================= -->
+    <section class="section" id="colecoes">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Coleções Trolesi</h2>
+          <p class="section-subtitle">
+            Cada coleção foi pensada para um estilo, um momento e uma história diferente.
+          </p>
+        </div>
+
+        <div class="collections-grid">
+          <article class="collection-card">
+            <p class="collection-tag">Clássicos</p>
+            <h3>Ouro 18k Essencial</h3>
+            <p>
+              Alianças, solitários e anéis clássicos que atravessam gerações com elegância.
+            </p>
+            <ul>
+              <li>Design atemporal</li>
+              <li>Brilho intenso</li>
+              <li>Perfeito para momentos únicos</li>
+            </ul>
+          </article>
+
+          <article class="collection-card">
+            <p class="collection-tag">Versátil</p>
+            <h3>Prata 925 & Dia a Dia</h3>
+            <p>
+              Peças que acompanham a rotina com leveza, combinando com tudo sem perder o charme.
+            </p>
+            <ul>
+              <li>Fácil de combinar</li>
+              <li>Conforto e delicadeza</li>
+              <li>Opções para todos os estilos</li>
+            </ul>
+          </article>
+
+          <article class="collection-card">
+            <p class="collection-tag">Tendência</p>
+            <h3>Lançamentos Exclusivos</h3>
+            <p>
+              Peças em edições especiais, pensadas para quem gosta de estar sempre um passo à frente.
+            </p>
+            <ul>
+              <li>Edição limitada</li>
+              <li>Detalhes diferenciados</li>
+              <li>Perfeito para presentear</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VITRINE ================= -->
+    <section class="section soft-bg" id="vitrine">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Vitrine Trolesi</h2>
+          <p class="section-subtitle">
+            Uma prévia de como podemos te ajudar a brilhar todos os dias.
+          </p>
+        </div>
+
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="ouro">Ouro 18k</button>
+          <button class="filter-btn" data-filter="prata">Prata 925</button>
+          <button class="filter-btn" data-filter="semijoia">Semijoias</button>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card" data-category="ouro">
+            <div class="product-badge">Ouro 18k</div>
+            <h3>Par de alianças clássicas</h3>
+            <p>Acabamento polido, perfeito para selar histórias.</p>
+            <span class="product-action">Consultar valores</span>
+          </article>
+
+          <article class="product-card" data-category="semijoia">
+            <div class="product-badge">Semijoia</div>
+            <h3>Conjunto colar + brinco</h3>
+            <p>Banho dourado e pontos de luz para o dia e noite.</p>
+            <span class="product-action">Ver detalhes</span>
+          </article>
+
+          <article class="product-card" data-category="prata">
+            <div class="product-badge">Prata 925</div>
+            <h3>Argolas essenciais</h3>
+            <p>Leves, versáteis e presentes em qualquer porta-joias.</p>
+            <span class="product-action">Combinar look</span>
+          </article>
+
+          <article class="product-card" data-category="semijoia">
+            <div class="product-badge">Semijoia</div>
+            <h3>Piercing fake delicado</h3>
+            <p>Detalhe moderno, sem perder a elegância Trolesi.</p>
+            <span class="product-action">Adicionar ao estilo</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRESENTES ================= -->
+    <section class="section" id="presentes">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Presentes que marcam momentos</h2>
+          <p class="section-subtitle">
+            Sugestões prontas para surpreender quem você ama com cuidado e delicadeza.
+          </p>
+        </div>
+
+        <div class="gifts-grid">
+          <article class="gift-card">
+            <p class="gift-tag">Data especial</p>
+            <h3>Kit Aniversário</h3>
+            <p>Brinco + colar em embalagem especial com cartão personalizado.</p>
+          </article>
+
+          <article class="gift-card">
+            <p class="gift-tag">Presente rápido</p>
+            <h3>Vale-presente Trolesi</h3>
+            <p>Você escolhe o valor, ela escolhe a joia.</p>
+          </article>
+
+          <article class="gift-card">
+            <p class="gift-tag">Detalhe diário</p>
+            <h3>Pulseiras empilháveis</h3>
+            <p>Combine várias peças delicadas para um look único.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MATERIAIS DE MARCA ================= -->
+    <section class="section soft-bg" id="materiais">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Materiais de Marca Trolesi</h2>
+          <p class="section-subtitle">
+            Aqui você tem uma prévia de como ficam o <strong>cartão de visita</strong>, 
+            <strong>banners</strong> e <strong>mockups</strong> usando a identidade Trolesi.
+            Você pode usar a própria tela do navegador para tirar print ou exportar.
+          </p>
+        </div>
+
+        <div class="brand-materials-grid">
+          <!-- Cartão de Visita -->
+          <div class="brand-block">
+            <h3>Cartão de visita</h3>
+            <div class="card-layout business-card">
+              <div class="bc-front">
+                <div class="bc-logo">
+                  <span class="bc-logo-text">Trolesi joias</span>
+                </div>
+                <p class="bc-tagline">Joias que elevam sua essência.</p>
+              </div>
+              <div class="bc-back">
+                <p class="bc-name">Nome da Consultora</p>
+                <p class="bc-info">@trolesijoias</p>
+                <p class="bc-info">WhatsApp: (00) 00000-0000</p>
+                <p class="bc-info">Cidade / UF</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Banner Instagram -->
+          <div class="brand-block">
+            <h3>Banner Instagram (1080x1080)</h3>
+            <div class="card-layout insta-banner">
+              <div class="ib-top">
+                <p className="ib-label">Lançamento</p>
+                <h4 class="ib-title">Coleção Rosa Essencial</h4>
+              </div>
+              <div class="ib-bottom">
+                <p class="ib-text">
+                  Detalhes delicados, banho dourado e o tom de rosa que é a cara da Trolesi.
+                </p>
+                <span class="ib-cta">@trolesijoias</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mockup Caixa / Sacola -->
+          <div class="brand-block">
+            <h3>Mockup caixa & sacola</h3>
+            <div class="card-layout mockup-box">
+              <div class="box-shape">
+                <span class="box-logo">Trolesi</span>
+              </div>
+              <div class="bag-shape">
+                <span class="bag-logo">joias</span>
+              </div>
+              <p class="mockup-note">
+                Visual de referência para caixa e sacola.  
+                Você pode usar esse layout como base em um designer ou Canva.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Atendimento Trolesi</h2>
+          <p class="section-subtitle">
+            Fale com a gente para conhecer o catálogo completo, tirar dúvidas ou montar um presente.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>WhatsApp</h3>
+            <p>Atendimento rápido, humanizado e direto.</p>
+            <a href="#" class="btn btn-primary btn-full">Chamar no WhatsApp</a>
+          </div>
+
+          <div class="contact-card">
+            <h3>Instagram</h3>
+            <p>Acompanhe novidades, coleções e bastidores.</p>
+            <a href="#" class="btn btn-outline btn-full">@trolesijoias</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> Trolesi Joias. Todos os direitos reservados.</p>
+      <p class="footer-note">Identidade visual em rosa Trolesi, dourado degradê e branco clean.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
