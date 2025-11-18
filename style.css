@@ -119,16 +119,53 @@ body {
 .hero {
   padding: 90px 0 70px;
   background: radial-gradient(circle at top left, #ffdbe9 0, #fff 45%, #fff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* GRID PRINCIPAL DO HERO */
-.hero-with-image {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* deixa texto e foto mais próximos */
+/* ==== HERO CENTRALIZADO E EQUILIBRADO ==== */
+.hero-grid {
+  display: flex;
   align-items: center;
-  gap: 20px; /* diminui o buraco no meio */
-  max-width: 1400px;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 40px;
+  padding: 0 40px;
+}
+
+.hero-left {
+  max-width: 520px;
+}
+
+.hero-right {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.hero-right img {
+  width: 360px;
+  height: auto;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  background: radial-gradient(circle, rgba(212,109,130,0.25), transparent 70%);
+  padding: 10px;
+  animation: fadeIn 1s ease;
+}
+
+.hero-right::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  background: radial-gradient(circle, rgba(212,109,130,0.35), transparent 70%);
+  filter: blur(45px);
+  z-index: -1;
+  border-radius: 50%;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* TEXTO DO HERO */
@@ -139,6 +176,7 @@ body {
   text-transform: uppercase;
   color: var(--cinza-suave);
   margin-bottom: 12px;
+  text-align: left;
 }
 
 .hero-title {
@@ -147,6 +185,7 @@ body {
   line-height: 1.08;
   margin-bottom: 16px;
   color: #3b2329;
+  text-align: left;
 }
 
 .logo-gradient {
@@ -160,39 +199,16 @@ body {
   color: var(--cinza-texto);
   max-width: 480px;
   margin-bottom: 26px;
+  text-align: left;
 }
+
+/* BOTÕES */
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 20px;
-}
-
-/* BOTÕES */
-
-.btn {
-  border-radius: 999px;
-  padding: 10px 22px;
-  font-size: 0.92rem;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.btn-primary {
-  background: linear-gradient(90deg, var(--rosa-trolesi), #f08ba6);
-  color: #fff;
-  box-shadow: 0 12px 26px rgba(212, 109, 130, 0.4);
-}
-
-.btn-outline {
-  border: 1px solid var(--rosa-trolesi);
-  color: var(--rosa-trolesi);
 }
 
 /* BADGES */
@@ -209,39 +225,6 @@ body {
   border-radius: 999px;
   background: rgba(212, 109, 130, 0.06);
   border: 1px solid rgba(212, 109, 130, 0.15);
-}
-
-/* ================= IMAGEM DO HERO ================= */
-
-.hero-right {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-/* Glow rosa atrás da imagem */
-.hero-right::before {
-  content: "";
-  position: absolute;
-  width: 330px;
-  height: 330px;
-  background: radial-gradient(circle, rgba(212,109,130,0.35), transparent 70%);
-  filter: blur(45px);
-  z-index: -1;
-  border-radius: 50%;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.hero-right img {
-  width: 100%;
-  max-width: 380px;
-  border-radius: 24px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-  object-fit: cover;
-  border: 1px solid rgba(255,255,255,0.7);
-  animation: fadeIn 1s ease-in-out;
 }
 
 /* animação */
@@ -306,15 +289,25 @@ body {
 
 @media (max-width: 900px) {
 
-  .hero-with-image {
-    grid-template-columns: 1fr;
+  .hero-grid {
+    flex-direction: column;
     text-align: center;
-    gap: 35px;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .hero-left {
+    max-width: 100%;
   }
 
   .hero-right img {
-    max-width: 300px;
+    width: 80%;
+    max-width: 320px;
     margin: 0 auto;
+  }
+
+  .hero-title, .hero-label, .hero-subtitle {
+    text-align: center;
   }
 
   .collections-grid {
@@ -323,7 +316,6 @@ body {
 }
 
 @media (max-width: 640px) {
-
   .collections-grid {
     grid-template-columns: 1fr;
   }
