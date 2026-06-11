@@ -30,6 +30,24 @@ body {
   line-height: 1.6;
 }
 
+/* Remover sublinhado azul padrão em links do navegador */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Hover mantém mudança de cor para indicar interatividade; foco acessível */
+a:hover,
+a:focus {
+  color: var(--rosa-trolesi);
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 3px solid rgba(212,109,130,0.18);
+  outline-offset: 3px;
+}
+
 /* ================= LAYOUT BASE ================= */
 
 .container {
