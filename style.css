@@ -4,7 +4,7 @@
   --rosa-trolesi-soft: #f3c0cf;
   --dourado-inicio: #c6a063;
   --dourado-fim: #e1c389;
-  --branco-clean: #ffffff;
+  --branco-clean: #f5efe6;
   --cinza-suave: #b8b0a8;
   --cinza-texto: #6b5e55;
 
@@ -348,7 +348,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* ================= PRESENTES ================= */
+/* ================= ATACADO / OPORTUNIDADE ================= */
 
 .gifts-grid {
   display: grid;

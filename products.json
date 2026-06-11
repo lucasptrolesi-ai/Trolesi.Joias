@@ -1,25 +1,32 @@
-{
-  "pulseira_ouro_01": {
-    "name": "Pulseira Dourada Classic",
-    "type": "pulseira",
-    "material": "ouro",
-    "images": [],
-    "price": 149.90
+[
+  {
+    "id": "pulseira-001",
+    "nome": "Pulseira Dourada Classic",
+    "categoria": "Pulseiras",
+    "material": "Banhado a Ouro",
+    "imagens": ["img/pulseira-dourada-1.jpg"],
+    "codigo": "PUL-001",
+    "preco": 149.90,
+    "descricao": "Pulseira banhada a ouro, acabamento refinado e design atemporal. Ideal para atacado."
   },
-
-  "anel_prata_01": {
-    "name": "Anel Prata Elegance",
-    "type": "anel",
-    "material": "prata",
-    "images": [],
-    "price": 129.90
+  {
+    "id": "anel-001",
+    "nome": "Anel Prata Elegance",
+    "categoria": "Anéis",
+    "material": "Prata 925",
+    "imagens": ["img/anel-prata-1.jpg"],
+    "codigo": "ANE-001",
+    "preco": 129.90,
+    "descricao": "Anel em Prata 925 com acabamento polido — indicado para revenda no atacado."
   },
-
-  "correntaria_aco_01": {
-    "name": "Corrente Masculina Aço",
-    "type": "correntaria",
-    "material": "aco",
-    "images": [],
-    "price": 89.90
+  {
+    "id": "corrente-001",
+    "nome": "Corrente Masculina Aço",
+    "categoria": "Correntes",
+    "material": "Aço Cirúrgico",
+    "imagens": ["img/corrente-aco-1.jpg"],
+    "codigo": "COR-001",
+    "preco": 89.90,
+    "descricao": "Corrente resistente em aço cirúrgico, acabamento duradouro para uso diário."
   }
-}
+]

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trolesi Joias — Produto</title>
+  <title>Trolesi Joias | Catálogo Atacadista — Produto</title>
+  <meta name="description" content="Catálogo atacadista Trolesi Joias — informações do produto e condições para revenda." />
 
   <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -211,7 +212,7 @@
       <nav class="nav">
         <a href="index.html#inicio">Início</a>
         <a href="index.html#colecoes">Coleções</a>
-        <a href="index.html#presentes">Presentes</a>
+        <a href="index.html#atacado">Atacado</a>
         <a href="index.html#contato" class="nav-cta">Contato</a>
       </nav>
     </div>
@@ -233,22 +234,22 @@
 
     <!-- INFORMAÇÕES -->
     <div class="product-info">
-      <div class="product-category">Categoria do Produto</div>
+      <div id="product-category" class="product-category">Categoria do Produto</div>
 
-      <h1>Nome do Produto</h1>
+      <h1 id="product-name">Nome do Produto</h1>
 
-      <div class="product-price">R$ 0,00</div>
+      <div id="product-price" class="product-price">R$ 0,00</div>
 
-      <p class="product-description">
-        Descrição do produto definida pelo painel administrativo.
+      <p id="product-description" class="product-description">
+        Descrição do produto.
       </p>
 
-      <a href="#" class="btn-buy">Comprar no WhatsApp</a>
+      <button id="interestBtn" class="btn-buy">Consultar no WhatsApp</button>
 
       <div class="product-specs">
         <h3>Detalhes</h3>
 
-        <ul>
+        <ul id="product-specs-list">
           <li>• Material: —</li>
           <li>• Banho: —</li>
           <li>• Tamanho: —</li>
@@ -282,12 +283,74 @@
 
   <footer class="footer">
     <div class="container footer-content">
+      <div class="footer-branding">
+        <strong>Trolesi Joias — atacado desde 1990.</strong>
+        <div>Catálogo para revendedoras, lojistas e parceiras comerciais.</div>
+      </div>
       <div class="dev-credit">
         <img src="img/lucas-logo.png" class="dev-logo">
         <span>Desenvolvido por <strong>Lucas Peixoto</strong></span>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Preenche a página de produto com dados de products.json
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const id = params.get('id');
+      const PHONE = '5535998603736';
+
+      function openWhatsApp(text){
+        const url = `https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
+      }
+
+      if (!id) return;
+
+      fetch('products.json')
+        .then(r => r.json())
+        .then(data => {
+          if (!Array.isArray(data)) return console.error('products.json deve ser um array');
+
+          const item = data.find(p => p.id === id);
+          if (!item) return document.querySelector('.product-page').innerHTML = '<p>Produto não encontrado.</p>';
+
+          // imagens
+          const mainImg = document.querySelector('.product-main-img');
+          if (mainImg) {
+            const imgSrc = (item.imagens && item.imagens.length) ? item.imagens[0] : 'img/product-placeholder.jpg';
+            mainImg.innerHTML = `<img src="${imgSrc}" alt="${item.nome}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">`;
+          }
+
+          document.getElementById('product-name').textContent = item.nome;
+          document.getElementById('product-category').textContent = item.categoria || '';
+          // não expor preço de varejo — mostrar faixa indicativa mínima
+          document.getElementById('product-price').textContent = item.preco ? `A partir de aproximadamente R$ ${item.preco.toFixed(2)}` : '';
+          document.getElementById('product-description').textContent = item.descricao || '';
+
+          // specs
+          const specsList = document.getElementById('product-specs-list');
+          if (specsList) {
+            specsList.innerHTML = '';
+            specsList.insertAdjacentHTML('beforeend', `<li>• Material: ${item.material || '—'}</li>`);
+            specsList.insertAdjacentHTML('beforeend', `<li>• Código: ${item.codigo || item.id}</li>`);
+            specsList.insertAdjacentHTML('beforeend', `<li>• Preço sugerido: R$ ${item.preco ? item.preco.toFixed(2) : '—'}</li>`);
+          }
+
+          // botão interesse
+          const btn = document.getElementById('interestBtn');
+          if (btn) {
+            btn.textContent = 'Consultar no WhatsApp';
+            btn.addEventListener('click', () => {
+              const text = `Olá! Tenho interesse no catálogo atacadista da Trolesi Joias. Gostaria de saber mais sobre: ${item.nome} / ${item.categoria || ''} / ${item.codigo || item.id}`;
+              openWhatsApp(text);
+            });
+          }
+        })
+        .catch(err => console.error('Erro carregando products.json', err));
+    })();
+  </script>
 
 </body>
 </html>

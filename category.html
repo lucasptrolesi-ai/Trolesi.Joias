@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Categorias | Trolesi Joias</title>
+  <title>Trolesi Joias | Catálogo Atacadista</title>
+  <meta name="description" content="Catálogo atacadista Trolesi Joias — explore categorias como Pulseiras, Prata 925, Anéis, Brincos e muito mais para revenda." />
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="category.css" />
 </head>
 <body>
 
@@ -21,9 +21,10 @@
     <nav class="nav" id="navMenu">
       <a href="index.html#inicio">Início</a>
       <a href="index.html#colecoes">Coleções</a>
-      <a href="index.html#presentes">Presentes</a>
+      <a href="index.html#atacado">Atacado</a>
       <a href="category.html" class="nav-cta">Categorias</a>
       <a href="index.html#contato" class="nav-cta">Contato</a>
+      <a href="index.html#seja-revendedora">Seja Revendedora</a>
     </nav>
 
     <button class="nav-toggle" id="navToggle">☰</button>
@@ -34,20 +35,23 @@
 
   <div class="container">
 
-    <h1 class="category-title">Categorias de Joias</h1>
-    <p class="category-subtitle">Escolha o tipo de joia e o material desejado</p>
+    <h1 class="category-title">Catálogo Atacadista</h1>
+    <p class="category-subtitle">Explore nossas categorias e conheça a variedade de modelos disponíveis para revenda.</p>
 
     <!-- FILTROS SOFISTICADOS -->
     <div class="filters-area">
       <div class="filter-group">
-        <label>Tipo</label>
+        <label>Categoria</label>
         <select id="filterType" class="lux-filter">
-          <option value="all">Todos os tipos</option>
-          <option value="pulseira">Pulseira</option>
-          <option value="colar">Colar</option>
-          <option value="anel">Anel</option>
-          <option value="correntaria">Correntaria</option>
-          <option value="tornozeleira">Tornozeleira</option>
+          <option value="all">Todas as categorias</option>
+          <option value="pulseiras">Pulseiras</option>
+          <option value="prata 925">Prata 925</option>
+          <option value="peças religiosas">Peças Religiosas</option>
+          <option value="anéis">Anéis</option>
+          <option value="conjuntos">Conjuntos</option>
+          <option value="correntes">Correntes</option>
+          <option value="brincos">Brincos</option>
+          <option value="braceletes">Braceletes</option>
         </select>
       </div>
 
@@ -55,74 +59,45 @@
         <label>Material</label>
         <select id="filterMaterial" class="lux-filter">
           <option value="all">Todos os materiais</option>
-          <option value="ouro">Banhado a ouro</option>
-          <option value="prata">Prata 925</option>
-          <option value="aco">Aço cirúrgico</option>
+          <option value="banhado a ouro">Banhado a Ouro</option>
+          <option value="prata 925">Prata 925</option>
+          <option value="aço cirúrgico">Aço Cirúrgico</option>
         </select>
       </div>
     </div>
 
-    <!-- GRID DE PRODUTOS – AGORA SEM IMAGEM FAKE -->
+    <!-- GRID DE PRODUTOS (será preenchida via script.js) -->
     <div class="products-grid" id="productsGrid">
-
-      <!-- CARD BASE PARA O BACKEND POPULAR -->
-      <div class="product-card" data-type="pulseira" data-material="ouro">
-        <div class="product-img-placeholder">
-          <span>Imagem do produto</span>
-        </div>
-        <h3 class="product-name">Nome do Produto</h3>
-        <p class="product-material">material</p>
-      </div>
-
-      <div class="product-card" data-type="anel" data-material="prata">
-        <div class="product-img-placeholder"></div>
-        <h3 class="product-name">Nome do Produto</h3>
-        <p class="product-material">material</p>
-      </div>
-
-      <div class="product-card" data-type="correntaria" data-material="aco">
-        <div class="product-img-placeholder"></div>
-        <h3 class="product-name">Nome do Produto</h3>
-        <p class="product-material">material</p>
-      </div>
-
+      <!-- Conteúdo dinâmico -->
     </div>
   </div>
 
 </main>
 
-<script src="category.js"></script>
+<!-- RODAPÉ -->
+<footer class="footer">
+  <div class="container footer-content">
+    <div class="footer-logo-area">
+      <img src="img/logo-trolesi.png" class="footer-logo-img" alt="Trolesi Joias">
+      <span class="footer-brand-name">Trolesi Joias</span>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html#inicio">Início</a>
+      <a href="index.html#colecoes">Coleções</a>
+      <a href="index.html#atacado">Atacado</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <div>
+      <strong>Trolesi Joias — atacado desde 1990.</strong>
+    </div>
+    <div>Catálogo para revendedoras, lojistas e parceiras comerciais.</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
-                <img src="img/material-aco.jpg" alt="Joias em aço cirúrgico" class="collection-image" loading="lazy" />
-                </div>
-                <h3>Aço Cirúrgico</h3>
-                <p>Resistência e brilho duradouros, ideal para uso diário.</p>
-            </article>
-    
-            </div>
-        </div>
-        </section>
-    
-    </main>
-    
-    <!-- ================= RODAPÉ IGUAL AO SITE PRINCIPAL ================= -->
-    <footer class="footer">
-        <div class="container footer-content">
-        <div class="footer-logo-area">
-            <img src="img/logo-trolesi.png" class="footer-logo-img" alt="Trolesi Joias">
-            <span class="footer-brand-name">Trolesi Joias</span>
-        </div>
-    
-        <nav class="footer-nav">
-            <a href="index.html#inicio">Início</a>
-            <a href="index.html#colecoes">Coleções</a>
-            <a href="index.html#presentes">Presentes</a>
-            <a href="index.html#contato">Contato</a>
-        </nav>
-        </div>
-    
-        <div class="footer-bottom">
-        <p>&copy; 2024 Trolesi Joias. Todos os direitos reservados.</p>
-        </div>
-    </footer>
