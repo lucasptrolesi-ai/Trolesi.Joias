@@ -46,10 +46,24 @@
 
         <div class="catalog-frame">
           <div class="catalog-actions">
-            <a href="https://raw.githubusercontent.com/lucasptrolesi-ai/Trolesi.Joias/main/catalog/catalogo-apresentacao.pdf" target="_blank" class="btn btn-primary">Abrir catálogo</a>
+            <button id="btnOpenPdf" class="btn btn-primary">Abrir catálogo (visualizador)</button>
+            <a href="https://raw.githubusercontent.com/lucasptrolesi-ai/Trolesi.Joias/main/catalog/catalogo-apresentacao.pdf" target="_blank" class="btn btn-outline">Baixar PDF</a>
           </div>
 
-          <p style="margin-top:12px;color:var(--cinza-texto);font-size:0.95rem">Se o PDF não abrir, faça o download usando o botão acima ou entre em contato via WhatsApp.</p>
+          <div id="pdfViewerContainer" style="margin-top:12px;display:none;">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;">
+              <button id="prev" class="btn btn-outline">Anterior</button>
+              <button id="next" class="btn btn-outline">Próxima</button>
+              <span style="color:var(--cinza-texto);font-size:0.95rem">Página: <span id="page_num">0</span> / <span id="page_count">0</span></span>
+              <div style="flex:1"></div>
+              <button id="zoomOut" class="btn btn-outline">-</button>
+              <button id="zoomIn" class="btn btn-outline">+</button>
+            </div>
+
+            <div id="pdf-render" style="background:#fff;border-radius:8px;padding:12px;display:flex;justify-content:center;">
+              <canvas id="pdf-canvas"></canvas>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -65,5 +79,81 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- PDF.js via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script>
+    // URL do PDF no repositório (raw)
+    const PDF_URL = 'https://raw.githubusercontent.com/lucasptrolesi-ai/Trolesi.Joias/main/catalog/catalogo-apresentacao.pdf';
+
+    // PDF.js worker
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    }
+
+    // Elementos
+    const btnOpen = document.getElementById('btnOpenPdf');
+    const viewer = document.getElementById('pdfViewerContainer');
+    const canvas = document.getElementById('pdf-canvas');
+    const ctx = canvas.getContext('2d');
+    const pageNumElem = document.getElementById('page_num');
+    const pageCountElem = document.getElementById('page_count');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const zoomIn = document.getElementById('zoomIn');
+    const zoomOut = document.getElementById('zoomOut');
+
+    let pdfDoc = null;
+    let pageNum = 1;
+    let scale = 1.1;
+
+    function renderPage(num) {
+      pdfDoc.getPage(num).then(function(page) {
+        const viewport = page.getViewport({ scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        const renderContext = { canvasContext: ctx, viewport: viewport };
+        page.render(renderContext);
+        pageNumElem.textContent = num;
+        pageCountElem.textContent = pdfDoc.numPages;
+        prevBtn.disabled = (num <= 1);
+        nextBtn.disabled = (num >= pdfDoc.numPages);
+      });
+    }
+
+    function queueRenderPage(num) { renderPage(num); }
+
+    btnOpen && btnOpen.addEventListener('click', function() {
+      // mostrar viewer
+      viewer.style.display = 'block';
+      btnOpen.disabled = true;
+
+      // carregar documento
+      if (pdfDoc) return renderPage(pageNum);
+
+      const loadingTask = pdfjsLib.getDocument(PDF_URL);
+      loadingTask.promise.then(function(pdf) {
+        pdfDoc = pdf;
+        pageNum = 1;
+        renderPage(pageNum);
+      }).catch(function(err){
+        console.error('Erro ao carregar PDF:', err);
+        alert('Não foi possível carregar o PDF. Faça o download e abra localmente.');
+      });
+    });
+
+    prevBtn && prevBtn.addEventListener('click', function() {
+      if (pageNum <= 1) return;
+      pageNum--;
+      queueRenderPage(pageNum);
+    });
+    nextBtn && nextBtn.addEventListener('click', function() {
+      if (pageNum >= pdfDoc.numPages) return;
+      pageNum++;
+      queueRenderPage(pageNum);
+    });
+
+    zoomIn && zoomIn.addEventListener('click', function(){ scale = Math.min(scale + 0.15, 3); renderPage(pageNum); });
+    zoomOut && zoomOut.addEventListener('click', function(){ scale = Math.max(scale - 0.15, 0.5); renderPage(pageNum); });
+  </script>
 </body>
 </html>
