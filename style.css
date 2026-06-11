@@ -637,6 +637,25 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+/* Efeito de zoom suave ao passar o mouse sobre imagens do catálogo e cards */
+.catalog-frame img,
+.collection-image,
+.category-card img,
+.product-thumb img,
+.product-main-img img {
+  transition: transform 0.35s ease, filter 0.35s ease;
+  will-change: transform;
+}
+
+.catalog-frame img:hover,
+.collection-image:hover,
+.category-card img:hover,
+.product-thumb img:hover,
+.product-main-img img:hover {
+  transform: scale(1.06);
+  filter: saturate(1.04);
+}
 /* ================= PÁGINA DE CATEGORIAS ================= */
 
 .category-main {
