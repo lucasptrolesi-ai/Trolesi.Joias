@@ -156,7 +156,7 @@ a:focus-visible {
   color: var(--rosa-trolesi);
 }
 
-/* Regras de CTA removidas — botão 'Solicitar tabela' não existe */
+/* Regras de CTA removidas */
 
 .nav-toggle {
   display: none;
