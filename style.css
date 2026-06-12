@@ -156,6 +156,17 @@ a:focus-visible {
   color: var(--rosa-trolesi);
 }
 
+/* Estilo para CTA fixo no header */
+.header-whatsapp {
+  margin-left: 12px;
+  background: linear-gradient(90deg, var(--rosa-trolesi), #f08ba6);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(212,109,130,0.18);
+}
+
 .nav-toggle {
   display: none;
   border: none;
