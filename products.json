@@ -4,29 +4,35 @@
     "nome": "Pulseira Dourada Classic",
     "categoria": "Pulseiras",
     "material": "Banhado a Ouro",
-    "imagens": ["img/pulseira-dourada-1.jpg"],
+    "imagem": "img/pulseira-dourada-1.jpg",
     "codigo": "PUL-001",
-    "preco": 149.90,
-    "descricao": "Pulseira banhada a ouro, acabamento refinado e design atemporal. Ideal para atacado."
+    "descricao": "Pulseira banhada a ouro, acabamento refinado e design atemporal. Ideal para revenda no atacado."
   },
   {
     "id": "anel-001",
     "nome": "Anel Prata Elegance",
     "categoria": "Anéis",
     "material": "Prata 925",
-    "imagens": ["img/anel-prata-1.jpg"],
+    "imagem": "img/anel-prata-1.jpg",
     "codigo": "ANE-001",
-    "preco": 129.90,
     "descricao": "Anel em Prata 925 com acabamento polido — indicado para revenda no atacado."
   },
   {
     "id": "corrente-001",
-    "nome": "Corrente Masculina Aço",
+    "nome": "Corrente Masculina Classic",
     "categoria": "Correntes",
     "material": "Aço Cirúrgico",
-    "imagens": ["img/corrente-aco-1.jpg"],
+    "imagem": "img/corrente-aco-1.jpg",
     "codigo": "COR-001",
-    "preco": 89.90,
-    "descricao": "Corrente resistente em aço cirúrgico, acabamento duradouro para uso diário."
+    "descricao": "Corrente resistente em aço cirúrgico com acabamento duradouro, indicada para revenda."
+  },
+  {
+    "id": "brinco-001",
+    "nome": "Brinco Delicato",
+    "categoria": "Brincos",
+    "material": "Folheado a ouro",
+    "imagem": "img/brinco-delicato-1.jpg",
+    "codigo": "BR001",
+    "descricao": "Peça selecionada para revenda com acabamento delicado e excelente apresentação."
   }
 ]

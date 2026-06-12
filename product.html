@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trolesi Joias | Catálogo Atacadista — Produto</title>
-  <meta name="description" content="Catálogo atacadista Trolesi Joias — informações do produto e condições para revenda." />
+  <title>Trolesi Joias | Catálogo Atacadista de Semijoias desde 1990</title>
+  <meta name="description" content="Conheça o catálogo atacadista da Trolesi Joias. Semijoias, joias, Prata 925 e peças folheadas para revendedoras e lojistas. Tradição, qualidade e confiança desde 1990." />
 
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,12 +80,7 @@
       margin-bottom: 20px;
     }
 
-    .product-price {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--rosa-trolesi);
-      margin: 18px 0;
-    }
+    /* preço não exibido em vitrine atacadista */
 
     .product-description {
       margin: 20px 0;
@@ -213,6 +208,8 @@
       <nav class="nav">
         <a href="index.html#inicio">Início</a>
         <a href="index.html#atacado">Atacado</a>
+        <a href="catalogo-apresentacao.html">Catálogo de Apresentação</a>
+        <a href="index.html#seja-revendedora">Revenda</a>
         <a href="index.html#contato" class="nav-cta">Contato</a>
       </nav>
     </div>
@@ -236,9 +233,9 @@
     <div class="product-info">
       <div id="product-category" class="product-category">Categoria do Produto</div>
 
-      <h1 id="product-name">Nome do Produto</h1>
+      <h1 id="product-name"></h1>
 
-      <div id="product-price" class="product-price">R$ 0,00</div>
+      <!-- preço não exibido para catálogo atacadista -->
 
       <p id="product-description" class="product-description">
         Descrição do produto.
@@ -251,9 +248,8 @@
 
         <ul id="product-specs-list">
           <li>• Material: —</li>
-          <li>• Banho: —</li>
-          <li>• Tamanho: —</li>
-          <li>• Observações: —</li>
+          <li>• Código: —</li>
+          <li>• Garantia/Observação: —</li>
         </ul>
       </div>
     </div>
@@ -263,21 +259,8 @@
   <section class="suggestions container">
     <h2>Você também pode gostar</h2>
 
-    <div class="suggestions-grid">
-      <div class="suggestion-card">
-        <div class="suggestion-placeholder">Sugestão 1</div>
-        <h3>Nome do Produto</h3>
-      </div>
-
-      <div class="suggestion-card">
-        <div class="suggestion-placeholder">Sugestão 2</div>
-        <h3>Nome do Produto</h3>
-      </div>
-
-      <div class="suggestion-card">
-        <div class="suggestion-placeholder">Sugestão 3</div>
-        <h3>Nome do Produto</h3>
-      </div>
+    <div class="suggestions-grid" id="suggestionsGrid">
+      <!-- sugestões preenchidas automaticamente -->
     </div>
   </section>
 
@@ -316,17 +299,15 @@
           const item = data.find(p => p.id === id);
           if (!item) return document.querySelector('.product-page').innerHTML = '<p>Produto não encontrado.</p>';
 
-          // imagens
+          // imagens (suporta `imagem` ou `imagens` antigo)
           const mainImg = document.querySelector('.product-main-img');
           if (mainImg) {
-            const imgSrc = (item.imagens && item.imagens.length) ? item.imagens[0] : 'img/product-placeholder.jpg';
+            const imgSrc = item.imagem || (item.imagens && item.imagens[0]) || 'img/product-placeholder.jpg';
             mainImg.innerHTML = `<img src="${imgSrc}" alt="${item.nome}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">`;
           }
 
           document.getElementById('product-name').textContent = item.nome;
           document.getElementById('product-category').textContent = item.categoria || '';
-          // não expor preço de varejo — mostrar faixa indicativa mínima
-          document.getElementById('product-price').textContent = item.preco ? `A partir de aproximadamente R$ ${item.preco.toFixed(2)}` : '';
           document.getElementById('product-description').textContent = item.descricao || '';
 
           // specs
@@ -335,18 +316,40 @@
             specsList.innerHTML = '';
             specsList.insertAdjacentHTML('beforeend', `<li>• Material: ${item.material || '—'}</li>`);
             specsList.insertAdjacentHTML('beforeend', `<li>• Código: ${item.codigo || item.id}</li>`);
-            specsList.insertAdjacentHTML('beforeend', `<li>• Preço sugerido: R$ ${item.preco ? item.preco.toFixed(2) : '—'}</li>`);
+            specsList.insertAdjacentHTML('beforeend', `<li>• Observação: ${item.observacao || 'Consulte condições comerciais.'}</li>`);
           }
 
-          // botão interesse
+          // botão interesse (mensagem padronizada)
           const btn = document.getElementById('interestBtn');
           if (btn) {
             btn.textContent = 'Consultar no WhatsApp';
             btn.addEventListener('click', () => {
-              const text = `Olá! Tenho interesse no catálogo atacadista da Trolesi Joias. Gostaria de saber mais sobre: ${item.nome} / ${item.categoria || ''} / ${item.codigo || item.id}`;
+              const text = `Olá! Tenho interesse no catálogo atacadista da Trolesi Joias. Gostaria de saber mais sobre: ${item.nome} - ${item.codigo || item.id}.`;
               openWhatsApp(text);
             });
           }
+
+          // sugestões: mostrar até 3 outros produtos
+          const suggestionsGrid = document.getElementById('suggestionsGrid');
+          if (suggestionsGrid && Array.isArray(data)) {
+            const others = data.filter(p => p.id !== id).slice(0,3);
+            suggestionsGrid.innerHTML = '';
+            others.forEach(o => {
+              const img = o.imagem || (o.imagens && o.imagens[0]) || 'img/product-placeholder.jpg';
+              const card = document.createElement('div');
+              card.className = 'suggestion-card';
+              card.innerHTML = `
+                <a href="product.html?id=${encodeURIComponent(o.id)}" style="text-decoration:none;color:inherit;">
+                  <div style="width:100%;height:180px;overflow:hidden;border-radius:12px;">
+                    <img src="${img}" alt="${o.nome}" style="width:100%;height:100%;object-fit:cover;display:block;">
+                  </div>
+                  <h3 style="padding:12px 0 18px;color:var(--rosa-trolesi);">${o.nome}</h3>
+                </a>
+              `;
+              suggestionsGrid.appendChild(card);
+            });
+          }
+
         })
         .catch(err => console.error('Erro carregando products.json', err));
     })();

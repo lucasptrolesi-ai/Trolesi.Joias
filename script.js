@@ -46,7 +46,7 @@ if (filterMaterial) filterMaterial.addEventListener("change", filterProducts);
    WHATSAPP: abre nova aba com mensagem pré-preenchida
 ========================================= */
 function openWhatsAppForProduct(nome, codigo, categoria) {
-  const text = `Olá! Tenho interesse no catálogo atacadista da Trolesi Joias. Gostaria de saber mais sobre: ${nome} / ${categoria || ''} / ${codigo || ''}`;
+  const text = `Olá! Tenho interesse no catálogo atacadista da Trolesi Joias. Gostaria de saber mais sobre: ${nome} - ${codigo || ''}.`;
   const url = `https://api.whatsapp.com/send?phone=${TROLESI_WHATSAPP}&text=${encodeURIComponent(text)}`;
   window.open(url, "_blank");
 }
@@ -65,7 +65,7 @@ function renderDynamicProducts(productsData) {
   }
 
   productsData.forEach(item => {
-    const imgSrc = (item.imagens && item.imagens.length) ? item.imagens[0] : "img/product-placeholder.jpg";
+    const imgSrc = item.imagem || (item.imagens && item.imagens.length && item.imagens[0]) || "img/product-placeholder.jpg";
     const card = document.createElement("article");
     card.className = "product-card";
     card.setAttribute("data-categoria", (item.categoria || "").toLowerCase());
