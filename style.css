@@ -168,11 +168,19 @@ a:focus-visible {
 }
 
 /* Tornar o CTA do header fixo no canto direito (desktop) */
+
 .header-whatsapp.fixed {
   position: fixed;
-  right: env(safe-area-inset-right, 22px);
-  top: env(safe-area-inset-top, 14px);
+  right: env(safe-area-inset-right, 18px);
+  bottom: env(safe-area-inset-bottom, 18px);
+  top: auto;
   z-index: 9999;
+  padding: 10px 14px;
+  min-width: 160px;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(212,109,130,0.22);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+  border-radius: 999px;
 }
 
 @media (max-width: 900px) {
@@ -187,6 +195,13 @@ a:focus-visible {
   .header-whatsapp.fixed {
     display: none;
   }
+}
+
+/* Aumentar alvo de toque e foco acessível */
+.header-whatsapp.fixed:focus {
+  transform: translateY(-3px);
+  outline: 3px solid rgba(212,109,130,0.18);
+  outline-offset: 3px;
 }
 
 .nav-toggle {
