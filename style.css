@@ -364,6 +364,37 @@ a:focus-visible {
   overflow: hidden;
   margin-bottom: 1rem;
 }
+#como-comprar .card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  max-width: 760px;
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: #5b514a;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+#como-comprar .card p {
+  margin-bottom: 0.85rem;
+}
+
+#como-comprar .card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem;
+  color: var(--rosa-trolesi);
+  margin-bottom: 0.6rem;
+}
+
+#como-comprar .card ul {
+  margin: 0.5rem 0 0.9rem 1.1rem;
+  padding: 0;
+}
+
+#como-comprar .card ul li {
+  margin-bottom: 0.4rem;
+}
 
 .collection-image {
   width: 100%;
