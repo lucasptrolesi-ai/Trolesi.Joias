@@ -12,8 +12,14 @@
     .catalog-hero{padding:80px 0;background:var(--branco-clean)}
     .catalog-frame{background:#fff;border-radius:14px;padding:18px;border:1px solid rgba(0,0,0,0.04);box-shadow:var(--shadow-soft)}
     .catalog-actions{display:flex;gap:12px;align-items:center;margin-bottom:12px}
-    .catalog-frame iframe{width:100%;height:820px;border:0;border-radius:8px}
-    @media(max-width:900px){.catalog-frame iframe{height:560px}}
+    /* Visualizador responsivo */
+    #pdfViewerContainer{width:100%}
+    #pdf-render{background:#fff;border-radius:8px;padding:12px;display:flex;justify-content:center;overflow:auto}
+    #pdf-render canvas{max-width:100%;height:auto;display:block}
+    /* Evita overflow horizontal indesejado no mobile */
+    @media (max-width:900px){
+      .catalog-hero{padding:36px 0}
+    }
   </style>
 </head>
 <body>
@@ -60,7 +66,7 @@
               <button id="zoomIn" class="btn btn-outline">+</button>
             </div>
 
-            <div id="pdf-render" style="background:#fff;border-radius:8px;padding:12px;display:flex;justify-content:center;">
+            <div id="pdf-render">
               <canvas id="pdf-canvas"></canvas>
             </div>
           </div>
@@ -104,13 +110,25 @@
 
     let pdfDoc = null;
     let pageNum = 1;
-    let scale = 1.1;
+    // userScale é o multiplicador controlado pelos botões + / -
+    let userScale = 1;
 
     function renderPage(num) {
       pdfDoc.getPage(num).then(function(page) {
-        const viewport = page.getViewport({ scale });
+        // calcula scale base para ajustar ao container
+        const container = document.getElementById('pdf-render');
+        const containerWidth = Math.max(container.clientWidth - 24, 200); // considerar padding
+        const unscaledViewport = page.getViewport({ scale: 1 });
+        const baseScale = Math.min(containerWidth / unscaledViewport.width, 1); // não upscalear além de 100%
+        const finalScale = baseScale * userScale;
+
+        const viewport = page.getViewport({ scale: finalScale });
         canvas.height = viewport.height;
         canvas.width = viewport.width;
+        // garante que o canvas se ajuste visualmente ao container
+        canvas.style.width = '100%';
+        canvas.style.height = 'auto';
+
         const renderContext = { canvasContext: ctx, viewport: viewport };
         page.render(renderContext);
         pageNumElem.textContent = num;
@@ -152,8 +170,8 @@
       queueRenderPage(pageNum);
     });
 
-    zoomIn && zoomIn.addEventListener('click', function(){ scale = Math.min(scale + 0.15, 3); renderPage(pageNum); });
-    zoomOut && zoomOut.addEventListener('click', function(){ scale = Math.max(scale - 0.15, 0.5); renderPage(pageNum); });
+    zoomIn && zoomIn.addEventListener('click', function(){ userScale = Math.min(userScale * 1.15, 3); renderPage(pageNum); });
+    zoomOut && zoomOut.addEventListener('click', function(){ userScale = Math.max(userScale / 1.15, 0.5); renderPage(pageNum); });
   </script>
 </body>
 </html>
