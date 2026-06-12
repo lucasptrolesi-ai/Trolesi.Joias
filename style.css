@@ -170,8 +170,8 @@ a:focus-visible {
 /* Tornar o CTA do header fixo no canto direito (desktop) */
 .header-whatsapp.fixed {
   position: fixed;
-  right: 22px;
-  top: 14px;
+  right: env(safe-area-inset-right, 22px);
+  top: env(safe-area-inset-top, 14px);
   z-index: 9999;
 }
 
@@ -179,6 +179,13 @@ a:focus-visible {
   .header-whatsapp.fixed {
     position: static;
     margin-left: 8px;
+  }
+}
+
+/* Em telas muito pequenas, esconder o CTA fixo para evitar sobreposição */
+@media (max-width: 420px) {
+  .header-whatsapp.fixed {
+    display: none;
   }
 }
 
